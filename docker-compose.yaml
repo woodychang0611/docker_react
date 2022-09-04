@@ -3,10 +3,23 @@ services:
   react_dev:  
     container_name: react_dev
     image: woodychang0611/react_dev:1.0.0
-    build: .
+    build: 
+      context: .
+      target: dev
     working_dir: /.
     entrypoint: /bin/sh
     stdin_open: true
     tty: true
+
+  react_prod:  
+    container_name: react_prod
+    image: woodychang0611/react_prod:1.0.0
+    build: 
+      context: .
+      target: prod
+    #working_dir: /.
+    #entrypoint: /bin/sh
+    stdin_open: true
+    tty: true
     ports:
-      - 5000:5000
+      - 7080:80
