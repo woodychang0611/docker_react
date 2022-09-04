@@ -17,8 +17,6 @@ services:
     build: 
       context: .
       target: prod
-    #working_dir: /.
-    #entrypoint: /bin/sh
     stdin_open: true
     tty: true
     ports:
