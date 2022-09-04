@@ -1,4 +1,4 @@
-# Build and depoly **React** Apps with Docker
+# Build and depoly **React** Apps in Docker container
 ## Process
 * Build (dev container)
     * Create a **nodejs alpine** container 
