@@ -3,11 +3,12 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+//for security reason only variable starts with REACT_APP_ 
+var some_environment_variable   = process.env.REACT_APP_ENV_VAR || 'Not defined';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <App env_var={some_environment_variable}/>
   </React.StrictMode>
 );
 
