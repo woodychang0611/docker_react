@@ -4,7 +4,7 @@ services:
     container_name: react_dev
     image: woodychang0611/react_dev:1.0.0
     build: 
-      context: .
+      context: front_end
       target: dev
     working_dir: /.
     entrypoint: /bin/sh
@@ -15,7 +15,7 @@ services:
     container_name: react_prod
     image: woodychang0611/react_prod:1.0.0
     build: 
-      context: .
+      context: front_end
       target: prod
     stdin_open: true
     tty: true
