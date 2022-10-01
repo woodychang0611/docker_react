@@ -3,37 +3,39 @@ import React from 'react';
 import './App.css';
 
 
-class App extends React.Component {
-  read_date(){
-    var self=this;  
-    fetch('http://localhost:3000/date' 
-    
-    )
-      .then(function(response) {
-        return response.json();
-      })
-      .then(function(myJson) {
-        self.setState({
-          date:myJson.date
-        })
-      });
-  }
-
-  constructor(props){
-    super(props)
-    this.state={
-      env_var:this.props.env_var
-    }
-
+function resolveAfter2Seconds(x) {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve(x);
+    }, 2000);
+  });
+}
+async function setData(x){
+  return await resolveAfter2Seconds(x)
 }
 
-  render() {
-    setTimeout(this.read_date.bind(this), 1000);
+class App extends React.Component {
 
+    constructor(props){
+      super(props)
+      this.state={
+        var:this.props.var
+      }
+  }
+
+  componentDidMount(){
+    setData("New Value").then(
+      s=>{
+        this.setState({var:s})
+      }
+    )
+  }
+
+  render() {
     return (
       <div className="App">
       <header className="App-header">
-        <h1>Environment Variable: {this.state.env_var}</h1>
+        <h1>Variable: {this.state.var}</h1>
         <h1>{this.state.date}</h1>
         <img src={logo} className="App-logo" alt="logo" />
       </header>
