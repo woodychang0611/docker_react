@@ -1,23 +1,28 @@
 version: "3"
 services:
-  react_dev:  
-    container_name: react_dev
-    image: woodychang0611/react_dev:1.0.0
+  frontend_build:  
+    container_name: frontend_build
+    image: woodychang0611/frontend_build:1.0.0
     build: 
-      context: front_end
+      context: frontend
       target: dev
     working_dir: /.
     entrypoint: /bin/sh
     stdin_open: true
     tty: true
 
-  react_prod:  
-    container_name: react_prod
-    image: woodychang0611/react_prod:1.0.0
+  frontend_prod:  
+    container_name: frontend_prod
+    image: woodychang0611/frontend_prod:1.0.0
     build: 
-      context: front_end
+      context: frontend
       target: prod
     stdin_open: true
     tty: true
     ports:
       - 7080:80
+
+  backend_prod:  
+    extends:
+      file: ./backend/docker-compose.yaml
+      service: backend_prod

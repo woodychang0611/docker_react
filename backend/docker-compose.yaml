@@ -1,0 +1,12 @@
+version: "3"
+services:
+  backend_prod:  
+    container_name: backend_prod
+    image: woodychang0611/backend_prod:1.0.0
+    build: 
+      context: .
+      target: prod
+    stdin_open: true
+    tty: true
+    ports:
+      - 3000:3000

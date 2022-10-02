@@ -3,6 +3,7 @@ Run mkdir /tmp/react
 Copy package.json /tmp/react/
 Run cd /tmp/react && npm install
 Copy ./src /tmp/react/src/
+Copy ./config /tmp/react/config/
 Copy ./public /tmp/react/public/
 Copy ./webpack.config.js /tmp/react/
 ENV REACT_APP_ENV_VAR="some build time variable"

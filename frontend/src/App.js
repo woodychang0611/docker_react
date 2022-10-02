@@ -19,19 +19,25 @@ class App extends React.Component {
     constructor(props){
       super(props)
       this.state={
-        var:this.props.var
+        var:this.props.var,
+        server_config:this.props.server_config
       }
   }
 
   componentDidMount(){
-    setData("New Value").then(
+    fetch(this.state.server_config.api.get_date)
+    .then((response) => response.json())
+    .then(
       s=>{
-        this.setState({var:s})
+        this.setState({
+          var:s.date}
+          )
       }
     )
   }
 
   render() {
+
     return (
       <div className="App">
       <header className="App-header">

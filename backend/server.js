@@ -1,10 +1,9 @@
 var express = require('express');
-var cors =require('cors');
+var cors = require('cors');
 var app = express();
 app.use(cors());
 
 app.get('/date', function(req, res) {
-  // res.send('Hello World!');
   date = new Date()
   res.json({ date: date});
 });
