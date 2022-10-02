@@ -1,7 +1,8 @@
 import logo from './logo.svg';
 import React from 'react';
 import './App.css';
-
+import HopefieldNetworkBlock from "./HopefieldNetwork/HopefieldNetworkBlock"
+import * as d3 from 'd3';
 
 function resolveAfter2Seconds(x) {
   return new Promise(resolve => {
@@ -43,6 +44,7 @@ class App extends React.Component {
       <header className="App-header">
         <h1>Variable: {this.state.var}</h1>
         <h1>{this.state.date}</h1>
+        <HopefieldNetworkBlock/>
         <img src={logo} className="App-logo" alt="logo" />
       </header>
     </div>
