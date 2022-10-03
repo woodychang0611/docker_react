@@ -42,8 +42,7 @@ class App extends React.Component {
     return (
       <div className="App">
       <header className="App-header">
-        <h1>Variable: {this.state.var}</h1>
-        <h1>{this.state.date}</h1>
+        <h3>Variable: {this.state.var}</h3>
         <HopefieldNetworkBlock/>
         <img src={logo} className="App-logo" alt="logo" />
       </header>
