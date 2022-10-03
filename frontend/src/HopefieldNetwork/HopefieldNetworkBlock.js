@@ -33,7 +33,7 @@ class HopefieldNetworkBlock extends React.Component {
         return (
             <svg className='HopefieldNetworkBlock' viewBox={`0 0 ${config.width} ${config.height}`}
                 preserveAspectRatio="xMidYMid meet">
-                <rect x="0" y="0" width={config.width} height={config.height} fill='red' />
+                <rect x="0" y="0" width={config.width} height={config.height} fill='darkblue' />
                 {data.map((v, i) => NodeBlock(i, v, config))}
             </svg>
         )
