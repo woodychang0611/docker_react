@@ -3,12 +3,15 @@ var cors = require('cors');
 var app = express();
 app.use(cors());
 
+let BackendPort = process.env.BackendPort
+console.log(BackendPort)
+
 app.get('/date', function(req, res) {
   date = new Date()
   res.json({ date: date});
 });
 
 
-app.listen(3000, function() {
-  console.log('Example app listening on port 3000!');
+app.listen(BackendPort, function() {
+  console.log(`Example app listening on port ${BackendPort}!`);
 });

@@ -1,5 +1,6 @@
 version: "3"
 services:
+
   frontend_build:  
     container_name: frontend_build
     image: woodychang0611/frontend_build:1.0.0
@@ -8,6 +9,8 @@ services:
       target: dev
     working_dir: /.
     entrypoint: /bin/sh
+    environment:
+      -GetDateEndpoint: http://${backend_prod}:${BackendPort}
     stdin_open: true
     tty: true
 
@@ -21,6 +24,8 @@ services:
     tty: true
     ports:
       - 7080:80
+    depends_on:
+      - backend_prod
 
   backend_prod:  
     extends:

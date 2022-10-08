@@ -8,5 +8,9 @@ services:
       target: prod
     stdin_open: true
     tty: true
+#    env_file:
+#      - .env
+    environment:
+      - BackendPort=${BackendPort:-3456}
     ports:
-      - 3000:3000
+      - ${BackendPort:-3456}:${BackendPort:-3456}
