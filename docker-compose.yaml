@@ -1,25 +1,14 @@
 version: "3"
 services:
 
-  frontend_build:  
-    container_name: frontend_build
-    image: woodychang0611/frontend_build:1.0.0
-    build: 
-      context: frontend
-      target: dev
-    working_dir: /.
-    entrypoint: /bin/sh
-    environment:
-      -GetDateEndpoint: http://${backend_prod}:${BackendPort}
-    stdin_open: true
-    tty: true
-
   frontend_prod:  
     container_name: frontend_prod
     image: woodychang0611/frontend_prod:1.0.0
     build: 
       context: frontend
       target: prod
+      args: 
+        SERVER_URL: http://127.0.0.1:${BackendPort}
     stdin_open: true
     tty: true
     ports:

@@ -26,7 +26,9 @@ class App extends React.Component {
   }
 
   componentDidMount(){
-    fetch(this.state.server_config.api.get_date)
+    console.log(this.state.server_config)
+    let address = `${this.state.server_config.SERVER_URL}/date/`
+    fetch(address)
     .then((response) => response.json())
     .then(
       s=>{

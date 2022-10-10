@@ -1,7 +1,6 @@
 const path = require('path');
 const CopyPlugin = require("copy-webpack-plugin");
 
-
 module.exports = {
   entry: './src/index.js',
   output: {
@@ -16,8 +15,8 @@ module.exports = {
   },
   plugins: [
     new CopyPlugin({
-        patterns: [
-          { from: 'public' }
+      patterns: [
+        { from: 'public' }
       ]
     }),
   ],
@@ -29,9 +28,9 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env','@babel/preset-react']
+            presets: ['@babel/preset-env', '@babel/preset-react']
           }
-        }        
+        }
       },
       {
         test: /\.css$/,
