@@ -7,4 +7,5 @@ ENV DB="http://mongo"
 EXPOSE ${ServerPort}
 CMD [ "node", "/tmp/node/server.js" ]
 
-FROM mongo:6.02 as db
+
+FROM mongo:6.0.2 as db

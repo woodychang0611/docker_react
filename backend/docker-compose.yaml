@@ -14,3 +14,16 @@ services:
       - ServerPort=${ServerPort:-3456}
     ports:
       - ${ServerPort:-3456}:${ServerPort:-3456}
+
+  db:
+    container_name: db
+    build: 
+      context: .
+      target: db    
+    image: woodychang0611/mongodb:1.0.0
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    ports:
+      - 27017:27017
