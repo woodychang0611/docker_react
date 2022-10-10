@@ -8,7 +8,7 @@ services:
       context: frontend
       target: prod
       args: 
-        SERVER_URL: http://127.0.0.1:${BackendPort}
+        SERVER_URL: http://127.0.0.1:${ServerPort}
     stdin_open: true
     tty: true
     ports:

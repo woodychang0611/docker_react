@@ -11,6 +11,6 @@ services:
 #    env_file:
 #      - .env
     environment:
-      - BackendPort=${BackendPort:-3456}
+      - ServerPort=${ServerPort:-3456}
     ports:
-      - ${BackendPort:-3456}:${BackendPort:-3456}
+      - ${ServerPort:-3456}:${ServerPort:-3456}

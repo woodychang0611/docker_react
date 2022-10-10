@@ -4,7 +4,7 @@ Copy package.json /tmp/node/
 Run cd /tmp/node && npm install
 Copy server.js /tmp/node/.
 ENV DB="http://mongo"
-EXPOSE ${BackendPort}
+EXPOSE ${ServerPort}
 CMD [ "node", "/tmp/node/server.js" ]
 
 FROM mongo:6.02 as db
