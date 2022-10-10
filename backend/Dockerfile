@@ -4,5 +4,5 @@ Copy package.json /tmp/node/
 Run cd /tmp/node && npm install
 Copy server.js /tmp/node/.
 
-EXPOSE ${BackendPort}
+EXPOSE ${ServerPort}
 CMD [ "node", "/tmp/node/server.js" ]
