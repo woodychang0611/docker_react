@@ -6,11 +6,15 @@ const client = new MongoClient(uri);
 
 async function run() {
     try {
-      // Connect the client to the server (optional starting in v4.7)
-      await client.connect();
+
+      let data = {
+        my_data:"my data value",
+        current_date:new Date()
+      }
       // Establish and verify connection
-      await client.db("admin").command({ping:1});
-      console.log("Connected successfully to server");
+      await client.db("test_db").collection('test_collection').insertOne(data)
+      result = await client.db("test_db").collection('test_collection').findOne()
+      console.log(result)
     } finally {
       // Ensures that the client will close when you finish/error
       await client.close();

@@ -8,8 +8,6 @@ services:
       target: prod
     stdin_open: true
     tty: true
-#    env_file:
-#      - .env
     environment:
       - ServerPort=${ServerPort:-3456}
     ports:
