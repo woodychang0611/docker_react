@@ -12,6 +12,8 @@ async function run() {
         current_date:new Date()
       }
       // Establish and verify connection
+      db = await client.db("admin").command({listDatabases:1})
+      console.log(db)
       await client.db("test_db").collection('test_collection').insertOne(data)
       result = await client.db("test_db").collection('test_collection').findOne()
       console.log(result)
