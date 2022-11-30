@@ -14,9 +14,9 @@ services:
     ports:
       - 7080:80
     depends_on:
-      - backend_prod
+      - backend
 
-  backend_prod:  
+  backend:  
     extends:
       file: ./backend/docker-compose.yaml
       service: backend_prod
