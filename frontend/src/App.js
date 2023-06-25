@@ -32,17 +32,24 @@ class App extends React.Component {
     }, 1000);
 
     fetch(address)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('response not ok')
-        }
-        response.json()
-      })
+      .then((response) => response.json())
       .then(
         s => {
-          this.setState({ var: s.date })
+          this.setState({
+            var: s.date
+          }
+          )
         }
-      )
+      ).catch(error => {
+        // Handle error
+        s => {
+          this.setState({
+            var: "not found"
+          }
+          )
+        }
+      })
+
   }
 
   render() {
