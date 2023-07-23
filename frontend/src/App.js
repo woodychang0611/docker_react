@@ -19,19 +19,19 @@ class App extends React.Component {
 
   componentDidMount() {
     console.log(this.state.server_config)
-    let address = `${this.state.server_config.SERVER_URL}/GET/date/`
+    let dateAddress = `${this.state.server_config.SERVER_URL}/GET/date/`
+    let usersAddress = `${this.state.server_config.SERVER_URL}/GET/users/`
+    // setTimeout(() => {
+    //   let userData =
+    //     [
+    //       { name: "Bob", value: "Bob's value" },
+    //       { name: "Tim", value: "Tim's value" },
+    //       { name: "Jean", value: "Jean's value" }
+    //     ]
+    //   this.setState({ userData: userData });
+    // }, 1000);
 
-    setTimeout(() => {
-      let userData =
-        [
-          { name: "Bob", value: "Bob's value" },
-          { name: "Tim", value: "Tim's value" },
-          { name: "Jean", value: "Jean's value" }
-        ]
-      this.setState({ userData: userData });
-    }, 1000);
-
-    fetch(address)
+    fetch(dateAddress)
       .then((response) => response.json())
       .then(
         s => {
@@ -50,6 +50,18 @@ class App extends React.Component {
         }
       })
 
+    fetch(usersAddress)
+      .then((response) => response.json())
+      .then(
+        s => {
+          console.log(s.users)
+          this.setState(
+            {
+              users: s.users
+            }
+          )
+        }
+      )
   }
 
   render() {

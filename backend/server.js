@@ -8,6 +8,7 @@ app.use(express.json())
 app.use(cors());
 
 const db = new Map()
+db.set("default","default value")
 
 let ServerPort = process.env.ServerPort
 
@@ -20,6 +21,17 @@ app.get('/GET/date', function(req, res) {
 app.get('/GET/info', function(req, res) {
   res.json({ info: process.env});
 });
+
+app.get('/GET/users/', function(req, res) {
+  users = 
+  [
+    { name: "Bob", value: "Bob's value" },
+    { name: "Tim", value: "Tim's value" },
+    { name: "Jean", value: "Jean's value" }
+  ]
+  res.json({users:users});
+});
+
 
 app.get('/GET/users/:name', function(req, res) {
   const name = req.params.name;
