@@ -1,3 +1,8 @@
+#config file
+
+**/server_config.json
+
+
 # Logs
 logs
 *.log
