@@ -18,50 +18,41 @@ class App extends React.Component {
     console.log(this.props.server_config.SERVER_URL)
   }
 
+  fetchJsonData(endpoint) {
+    return new Promise((resolve, reject) => {
+      fetch(endpoint)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network not ok")
+          }
+          resolve(response.json());
+        }
+        ).catch((error) => {
+          // Handle network errors or JSON parsing errors here
+          reject(`Fetch error: ${error}`);
+        });
+    }
+    )
+  }
+
+
+
   componentDidMount() {
     console.log(`server_config: ${this.state.server_config}`)
     let dateAddress = `${this.state.server_config.SERVER_URL}/GET/date/`
     let usersAddress = `${this.state.server_config.SERVER_URL}/GET/users/`
-    // setTimeout(() => {
-    //   let userData =
-    //     [
-    //       { name: "Bob", value: "Bob's value" },
-    //       { name: "Tim", value: "Tim's value" },
-    //       { name: "Jean", value: "Jean's value" }
-    //     ]
-    //   this.setState({ userData: userData });
-    // }, 1000);
 
-    fetch(dateAddress)
-      .then((response) => response.json())
+    this.fetchJsonData(dateAddress)
       .then(
         s => {
-          this.setState({
-            var: s.date
-          }
-          )
+          this.setState({ var: s.date })
         }
-      ).catch(error => {
-        // Handle error
-        s => {
-          this.setState({
-            var: "not found"
-          }
-          )
-        }
-      })
+      )
 
-    fetch(usersAddress)
-      .then((response) => response.json())
+    this.fetchJsonData(usersAddress)
       .then(
         s => {
-          console.log(s.users)
-          this.setState(
-            {
-              users: s.users
-            }
-          )
-          console.log(this.state.users)
+          this.setState({ users: s.users })
         }
       )
   }
