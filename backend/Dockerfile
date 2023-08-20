@@ -1,8 +1,8 @@
 FROM node:18.9 as prod
-Run mkdir /tmp/node
-Copy package.json /tmp/node/
-Run cd /tmp/node && npm install
-Copy *.js /tmp/node/.
+RUN mkdir /tmp/node
+COPY package.json /tmp/node/
+RUN cd /tmp/node && npm install
+COPY *.js /tmp/node/.
 ENV DB="http://mongo"
 EXPOSE ${ServerPort}
 CMD [ "node", "/tmp/node/server.js" ]

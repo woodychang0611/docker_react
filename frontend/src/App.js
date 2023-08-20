@@ -15,6 +15,7 @@ class App extends React.Component {
       data: "old data",
       server_config: this.props.server_config
     }
+    console.log(this.props.server_config.SERVER_URL)
   }
 
   componentDidMount() {
