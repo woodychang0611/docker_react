@@ -18,7 +18,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.state.server_config)
+    console.log(`server_config: ${this.state.server_config}`)
     let dateAddress = `${this.state.server_config.SERVER_URL}/GET/date/`
     let usersAddress = `${this.state.server_config.SERVER_URL}/GET/users/`
     // setTimeout(() => {
@@ -60,17 +60,17 @@ class App extends React.Component {
               users: s.users
             }
           )
+          console.log(this.state.users)
         }
       )
   }
 
   render() {
-
-    let userData = this.state.userData
+    let users = this.state.users
     return (
       <div className="App">
         <header className="App-header">
-          <UserList userData={userData} />
+          <UserList userData={users} />
           <h3>Variable: {this.state.var}</h3>
           <HopefieldNetworkBlock />
           <img src={logo} className="App-logo" alt="logo" />
