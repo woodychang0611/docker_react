@@ -1,9 +1,11 @@
-import logo from './logo.svg';
 import React from 'react';
-import './App.css';
+//import './App.css';
 import HopefieldNetworkBlock from "./HopefieldNetwork/HopefieldNetworkBlock"
 import UserList from "./UserList/UserList"
-
+import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
+import CssBaseline from '@mui/material/CssBaseline';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 class App extends React.Component {
 
@@ -59,18 +61,22 @@ class App extends React.Component {
 
   render() {
     let users = this.state.users
+    const defaultTheme = createTheme();
+
     return (
-      <div className="App">
-        <header className="App-header">
+      <ThemeProvider theme={defaultTheme}>
+        <Container component="main" maxWidth="xs" className="App">
+          <CssBaseline />
           <UserList userData={users} />
-          <h3>Variable: {this.state.var}</h3>
+          <Typography component="h1" variant="h5" >
+            Variable: {this.state.var}
+          </Typography >
+
           <HopefieldNetworkBlock />
-          <img src={logo} className="App-logo" alt="logo" />
-        </header>
-      </div>
+        </Container>
+      </ThemeProvider>
     );
   }
-
 }
 
 export default App;
