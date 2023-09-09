@@ -1,5 +1,4 @@
 import React from 'react';
-//import './App.css';
 import HopefieldNetworkBlock from "./HopefieldNetwork/HopefieldNetworkBlock"
 import UserList from "./UserList/UserList"
 import Container from '@mui/material/Container';
