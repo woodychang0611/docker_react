@@ -1,7 +1,7 @@
 // config/jest.config.js
 
 module.exports = {
-    presets:'babel-jest',
+    preset:'babel-jest',
     roots:[
         "../src"
     ],
