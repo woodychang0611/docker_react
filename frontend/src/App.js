@@ -47,10 +47,10 @@ class App extends React.Component {
 
     return (
       <ThemeProvider theme={defaultTheme}>
-        <Container component="main" maxWidth="xs" className="App">
+        <Container component="main" maxWidth="sm" className="App">
           <CssBaseline />
           <UserList userData={users} />
-          <Typography component="h1" variant="h5" >
+          <Typography component="h5" variant="h5" >
             Variable: {this.state.var}
           </Typography >
 
