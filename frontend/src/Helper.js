@@ -1,3 +1,5 @@
+//import fetch from "node-fetch";
+
 function fetchJsonData(endpoint) {
     return new Promise((resolve, reject) => {
       fetch(endpoint)

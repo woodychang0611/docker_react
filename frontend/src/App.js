@@ -30,14 +30,18 @@ class App extends React.Component {
         s => {
           this.setState({ var: s.date })
         }
-      )
+      ).catch((error)=>{
+
+      })
 
     fetchJsonData(usersAddress)
       .then(
         s => {
           this.setState({ users: s.users })
         }
-      )
+      ).catch((error)=>{
+
+      })
   }
 
   render() {
