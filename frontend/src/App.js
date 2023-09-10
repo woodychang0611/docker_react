@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import CssBaseline from '@mui/material/CssBaseline';
 import fetchJsonData from "./Helper";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import logo from './logo.svg';
 
 class App extends React.Component {
 
@@ -56,8 +57,8 @@ class App extends React.Component {
           <Typography component="h5" variant="h5" >
             Variable: {this.state.var}
           </Typography >
-
           <HopefieldNetworkBlock />
+          <img src={logo} className="App-logo" alt="logo" />
         </Container>
       </ThemeProvider>
     );
