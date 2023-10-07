@@ -18,11 +18,9 @@ class App extends React.Component {
       data: "old data",
       server_config: this.props.server_config
     }
-    console.log(this.props.server_config.SERVER_URL)
   }
 
   componentDidMount() {
-    console.log(`server_config: ${this.state.server_config}`)
     let dateAddress = `${this.state.server_config.SERVER_URL}/GET/date/`
     let usersAddress = `${this.state.server_config.SERVER_URL}/GET/users/`
 
@@ -51,8 +49,7 @@ class App extends React.Component {
 
     return (
       <ThemeProvider theme={defaultTheme}>
-        <Container component="main" maxWidth="sm" className="App">
-          <h1>App</h1>
+        <Container component="main" maxWidth="sm" className="App" data-testid="App">
           <CssBaseline />
           <UserList userData={users} />
           <Typography component="h5" variant="h5" >
