@@ -24,7 +24,6 @@ class UserList extends React.Component {
         const { userData } = this.props;
 
         if (userData) {
-
             const childComponent = userData.map(user => (
                 <UserComponent key={user.name} user={user} />
             ))

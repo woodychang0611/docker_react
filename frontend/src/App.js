@@ -52,6 +52,7 @@ class App extends React.Component {
     return (
       <ThemeProvider theme={defaultTheme}>
         <Container component="main" maxWidth="sm" className="App">
+          <h1>App</h1>
           <CssBaseline />
           <UserList userData={users} />
           <Typography component="h5" variant="h5" >
