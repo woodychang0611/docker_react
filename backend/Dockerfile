@@ -1,11 +1,13 @@
 FROM node:18.9 as prod
 RUN mkdir /tmp/node
-COPY package.json /tmp/node/
+WORKDIR /tmp/node/
+COPY package.json .
 RUN cd /tmp/node && npm install
-COPY *.js /tmp/node/.
+COPY *.js .
+COPY *.json .
 ENV DB="http://mongo"
 EXPOSE ${ServerPort}
-CMD [ "node", "/tmp/node/server.js" ]
+CMD [ "node", "server.js" ]
 
 
 FROM mongo:6.0.2 as db

@@ -1,5 +1,6 @@
 var express = require('express');
 var cors = require('cors');
+const fs = require('fs');
 var app = express();
 
 
@@ -12,6 +13,20 @@ db.set("default","default value")
 
 let ServerPort = process.env.ServerPort
 
+//Speed up docker compose down
+process.on('SIGTERM', () => {
+  // Handle cleanup here
+  console.log('SIGTERM received. Shutting down gracefully.');
+  process.exit(0);
+});
+
+
+if(undefined == ServerPort){
+  defaultServerPort=3456
+  console.log('ServerPort not defined use defualt ${defaultServerPort}')
+  ServerPort=defaultServerPort
+}
+
 app.get('/GET/date', function(req, res) {
   date = new Date()
   console.log(`get date: ${date}`)
@@ -23,12 +38,7 @@ app.get('/GET/info', function(req, res) {
 });
 
 app.get('/GET/users/', function(req, res) {
-  users = 
-  [
-    { name: "Bob", value: "Bob's value" },
-    { name: "Tim", value: "Tim's value" },
-    { name: "Jean", value: "Jean's value" }
-  ]
+  const users = JSON.parse(fs.readFileSync('./defaultUsers.json', 'utf8'));
   res.json({users:users});
 });
 
