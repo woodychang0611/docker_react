@@ -40,6 +40,7 @@ app.get('/GET/info', function(req, res) {
 app.get('/GET/users/', function(req, res) {
   const users = JSON.parse(fs.readFileSync('./defaultUsers.json', 'utf8'));
   res.json({users:users});
+
 });
 
 
