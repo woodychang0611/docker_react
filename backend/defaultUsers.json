@@ -1,5 +1,10 @@
-[
-  { "name": "Bob", "value": "Bob's value" },
-  { "name": "Tim", "value": "Tim's value" },
-  { "name": "Jean", "value": "Jean's value" }
-]
+[{"id":1,"name":"Anthiathia","value":"Khaki"},
+{"id":2,"name":"Timofei","value":"Yellow"},
+{"id":3,"name":"Kristyn","value":"Red"},
+{"id":4,"name":"Jayne","value":"Turquoise"},
+{"id":5,"name":"Trina","value":"Maroon"},
+{"id":6,"name":"Mohandas","value":"Green"},
+{"id":7,"name":"Cindelyn","value":"Crimson"},
+{"id":8,"name":"Ulrika","value":"Turquoise"},
+{"id":9,"name":"Haywood","value":"Fuscia"},
+{"id":10,"name":"Araldo","value":"Blue"}]

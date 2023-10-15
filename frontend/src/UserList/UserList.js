@@ -12,9 +12,7 @@ class UserComponent extends React.Component {
                 <TextField value={user.name}>
                 </TextField>
             </Grid>
-
         )
-
     }
 }
 
