@@ -3,7 +3,7 @@ import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
-
+import Box from '@mui/material/Box';
 class UserComponent extends React.Component {
     render() {
         const { user } = this.props;
@@ -11,6 +11,9 @@ class UserComponent extends React.Component {
             <Grid>
                 <TextField value={user.name}>
                 </TextField>
+                <Box width={200} bgcolor={user.value} m={2} p={2}>
+                    {user.value}
+                </Box>
             </Grid>
         )
     }
