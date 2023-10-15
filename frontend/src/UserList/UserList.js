@@ -9,11 +9,8 @@ class UserComponent extends React.Component {
         const { user } = this.props;
         return (
             <Grid>
-                <TextField value={user.name}>
+                <TextField value={user.name} sx={{ backgroundColor: user.value }}>
                 </TextField>
-                <Box width={200} bgcolor={user.value} m={2} p={2}>
-                    {user.value}
-                </Box>
             </Grid>
         )
     }
