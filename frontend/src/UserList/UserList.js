@@ -18,22 +18,36 @@ class UserComponent extends React.Component {
 
 class UserList extends React.Component {
 
+    validateUsers(userData) {
+        if (!Array.isArray(userData)) {
+            throw ("Users type is not an array")
+        }
+        return true
+    }
+
     render() {
         const { userData } = this.props;
 
-        if (userData) {
-            const childComponent = userData.map(user => (
-                <UserComponent key={user.name} user={user} />
-            ))
-            return (
-                <Container component="main" >
-                    <Typography component="h1" variant="h5" >User List</Typography>
-                    <div>{childComponent}</div>
-                </Container >
-            )
-        } else {
+        if (!userData) {
             return (<div>Loading</div>)
         }
+
+        try {
+            this.validateUsers(userData)
+        } catch (error) {
+            return (<div>Error with Users. {error}</div>)
+        }
+
+        const childComponent = userData.map(user => (
+            <UserComponent key={user.name} user={user} />
+        ))
+        return (
+            <Container component="main" >
+                <Typography component="h1" variant="h5" >User List</Typography>
+                <div>{childComponent}</div>
+            </Container >
+        )
+
     }
 }
 
